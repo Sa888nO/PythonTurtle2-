@@ -1,7 +1,7 @@
 import turtle
+
 turtle.shape('turtle')
 turtle.color('green')
-turtle.speed(0)
 
 def circle(n):
 	corner = 360/n
