@@ -1,24 +1,26 @@
-import turtle
+import turtle, math
 
 turtle.shape('turtle')
 turtle.color('green')
-n = 2
-step = 15
+n = 3
+rad = 20
 
-def regularPolygon():
-	global n
-	global step
-	n += 1 
-	step += 15
-	for x in range(n):
-		turtle.left(360/n)
-		turtle.forward(step)
-	turtle.right(45)
+def regularPolygon(sides, size, turnAr):
+	corner = 360/sides
+	for x in range(sides):
+		turtle.left(corner)
+		turtle.forward(size)
+
+	turtle.right(turnAr)
 	turtle.penup()
-	turtle.forward(15)
-	turtle.left(45)
+	turtle.forward(20)
 	turtle.pendown()
 	
 for x in range(10):
-	regularPolygon()
+	size = 2 * rad * math.sin(math.pi / n)
+	turnAr = (180 - 360 / n) / 2
+	turtle.left(turnAr)
+	regularPolygon(n,size,turnAr)
+	n += 1 
+	rad += 20
 turtle.done()
